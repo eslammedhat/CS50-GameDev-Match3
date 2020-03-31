@@ -13,15 +13,17 @@
 
 Board = Class{}
 
-function Board:init(x, y)
+
+function Board:init(x, y, level)
     self.x = x
     self.y = y
     self.matches = {}
+    self.isFirstLevel = (level == 1)
 
     self:initializeTiles()
 end
 
-function Board:initializeTiles()
+function Board:initializeTiles( )
     self.tiles = {}
 
     for tileY = 1, 8 do
@@ -30,9 +32,9 @@ function Board:initializeTiles()
         table.insert(self.tiles, {})
 
         for tileX = 1, 8 do
-            
+            local var = self.isFirstLevel and 1 or math.random(6)
             -- create a new tile at X,Y with a random color and variety
-            table.insert(self.tiles[tileY], Tile(tileX, tileY, math.random(18), math.random(6)))
+            table.insert(self.tiles[tileY], Tile(tileX, tileY, math.random(18), var))
         end
     end
 
