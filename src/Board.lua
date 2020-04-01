@@ -298,7 +298,7 @@ function Board:getFallingTiles()
             if not tile then
 
                 -- new tile with random color and variety
-                local tile = Tile(x, y, math.random(18), math.random(6))
+                local tile = Tile(x, y, math.random(18), self.isFirstLevel and 1 or math.random(6))
                 tile.y = -32
                 self.tiles[y][x] = tile
 
