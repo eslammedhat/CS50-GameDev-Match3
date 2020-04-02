@@ -34,7 +34,7 @@ function Board:initializeTiles( )
         for tileX = 1, 8 do
             local var = self.isFirstLevel and 1 or math.random(6)
             -- create a new tile at X,Y with a random color and variety
-            table.insert(self.tiles[tileY], Tile(tileX, tileY, math.random(18), var))
+            table.insert(self.tiles[tileY], Tile(tileX, tileY, math.random(8), var))
         end
     end
 
@@ -298,7 +298,7 @@ function Board:getFallingTiles()
             if not tile then
 
                 -- new tile with random color and variety
-                local tile = Tile(x, y, math.random(18), self.isFirstLevel and 1 or math.random(6))
+                local tile = Tile(x, y, math.random(8), self.isFirstLevel and 1 or math.random(6))
                 tile.y = -32
                 self.tiles[y][x] = tile
 
